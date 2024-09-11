@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "npx eslint .",
     "build": "rm -rf ./node_modules && npm install",
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "cy:open": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,8 @@
     "@wdio/local-runner": "^8.6.7",
     "@wdio/mocha-framework": "^8.6.6",
     "@wdio/spec-reporter": "^8.6.6",
-    "chromedriver": "^111.0.0",
+    "chromedriver": "^128.0.1",
+    "cypress": "^13.14.1",
     "eslint": "^8.38.0",
     "eslint-plugin-mocha": "^10.1.0",
     "eslint-plugin-wdio": "^8.0.14",
