@@ -9,6 +9,15 @@ module.exports = {
     phoneNumberButton: '//div[starts-with(text(), "Phone number")]',
     nextButton: 'button=Next',
     confirmButton: 'button=Confirm',
+    planSelector: 'select[name="tcard-i]',
+    messageInput: 'textarea[name="message"]',
+    blanketCheckbox: 'input[name="blanket"]',
+    hankerchiefCheckbox: 'input[name="handkerchiefs"]',
+    blanketState:'div[name="blanketState"]',
+    iceCreamSelect: 'select[name="iceCream"]',
+    carSearchModal: 'div[name="carSearchModal"]',
+    driverInfo: 'div[name="driverInfo"]',
+
     // Modals
     phoneNumberModal: '.modal',
     // Functions

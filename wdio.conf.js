@@ -86,7 +86,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://cnt-6d1fde8b-35b1-4c14-8618-e9b038e4d88b.containerhub.tripleten-services.com',
+    baseUrl: 'https://cnt-ec7ba40b-4b3d-477e-89a3-36882e6c5156.containerhub.tripleten-services.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
