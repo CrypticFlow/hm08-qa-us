@@ -5,18 +5,23 @@ module.exports = {
     phoneNumberField: '#phone',
     codeField: '#code',
     // Buttons
-    callATaxiButton: 'button=Call a taxi',
-    phoneNumberButton: '//div[starts-with(text(), "Phone number")]',
-    nextButton: 'button=Next',
-    confirmButton: 'button=Confirm',
-    planSelector: 'select[name="tcard-i]',
-    messageInput: 'textarea[name="message"]',
-    blanketCheckbox: 'input[name="blanket"]',
-    hankerchiefCheckbox: 'input[name="handkerchiefs"]',
+    addCardButton: 'button[name="addCard"]',
     blanketState:'div[name="blanketState"]',
-    iceCreamSelect: 'select[name="iceCream"]',
+    blanketCheckbox: 'input[name="blanket"]',
     carSearchModal: 'div[name="carSearchModal"]',
+    callATaxiButton: 'button=Call a taxi',
+    cardNumberInput: 'div[name="pp.button-filled"]',
+    confirmButton: 'button=Confirm',
+    cvvInput: 'input[name="cvv"]',
     driverInfo: 'div[name="driverInfo"]',
+    expDateInput: 'input[name="expDate"]',
+    hankerchiefCheckbox: 'input[name="handkerchiefs"]',
+    iceCreamSelect: 'select[name="iceCream"]',
+    messageInput: 'textarea[name="message"]',
+    nextButton: 'button=Next',
+    phoneNumberButton: 'div[class="np-button"]',
+    planSelector: 'img[alt="Supportive"]',
+    
 
     // Modals
     phoneNumberModal: '.modal',
@@ -38,7 +43,7 @@ module.exports = {
         await phoneNumberModal.waitForDisplayed()
         const phoneNumberField = await $(this.phoneNumberField);
         await phoneNumberField.waitForDisplayed();
-        await phoneNumberField.setValue(phoneNumber);
+        await phoneNumberField.setValue('div[class="np-button"]');
     },
     submitPhoneNumber: async function(phoneNumber) {
         await this.fillPhoneNumber(phoneNumber);
