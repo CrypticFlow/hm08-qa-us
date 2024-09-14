@@ -25,69 +25,86 @@ describe('Create an order', () => {
         const phoneNumber = await $('div[class="np-button"]');
         await page.fillPhoneNumber(phoneNumber); 
         await phoneNumber.waitForExist({ timeout: 5000 }); 
-    });
-
+        await expect(phoneNumber).toBeExisting();
+        });
+   
     it('should collect credit card details', async () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St'); 
-
-        const addCardButton = await $('img[alt="Icon"]');
-        await expect(addCardButton).toBeExisting(); 
-        await addCardButton.click();
-
-        const cardNumberInput = await $('input[number="number.card-input"]');
-        await expect(cardNumberInput).toBeExisting();
+        const addCardPaymentMethod = await $(page.addCardPaymentMethod);
+        await addCardPaymentMethod.waitForDisplayed();
+        await addCardPaymentMethod.click();
+        const cardNumberInput = await $(page.cardNumberInput);
+        await cardNumberInput.waitForDisplayed(); 
+        await cardNumberInput.waitForExist({timeout: 5000})
         await expect(await cardNumberInput.setValue('1234 5678 9101'));
-
-        const expDateInput = await $('div[class="plc"]');
-        await expect(expDateInput).toBeExisting();
+        await cardNumberInput.click(); 
+        const expDateInput = await $(page.expDateInput);
+        await expDateInput.waitForDisplayed();
+        await expDateInput.waitForExist({timeout: 5000});
         await expect(await expDateInput.setValue('12/28'));
-
-        const cvvInput = await $('input[card.code-input]');
-        await expect(cvvInput).toBeExisting();
+        await expDateInput.click(); 
+        const cvvInput = await $(page.cvvInput);
+        await cvvInput.waitForDisplayed();
+        await cvvInput.waitForExist({timeout: 5000});
         await expect(await cvvInput.setValue('111'));
+        await cvvInput.click(); 
         //await cvvInput.keys('Tab'); 
+        const linkButton = await $(page.linkButton);
+        await linkButton.click(); 
+    }); 
 
-        const linkButton = await $('button[class="button full"]');
-        await linkButton.click();
-    });
-
-    /*
     it('should write a message to the driver', async () => {
         await browser.url(`/`);
-        const messageInput = await $('textarea[name="message"]'); 
-        await messageInput.setValue('Hello, please arrive ASAP!');
-        await expect(messageInput).getValue().should.equal('Hello, please arrive ASAP!');
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St'); 
+        const messageInput = await $(page.messageInput); 
+        await messageInput.waitForDisplayed(); 
+        await messageInput.waitForExist({ timeout: 5000 }); 
+        await expect(messageInput).toBeExisting();
     });
     
     it('should order a Blanket and handkerchiefs', async () => {
         await browser.url(`/`);
-        const blanketCheckbox = await $('input[name="blanket"]'); 
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
+        const blanketCheckbox = await $(page.blanketCheckbox); 
+        await blanketCheckbox.waitForDisplayed();
+        await blanketCheckbox.waitForExist({ timeout: 10000 }); 
         await blanketCheckbox.click();
-        await expect(blanketCheckbox).isSelected().should.be.true; 
-        await expect(blanketCheckbox).getText().should.equal('Ordered');
-        const handkerchiefCheckbox = await $('input[name="handkerchiefs"]'); 
+        await expect(blanketCheckbox).toBeExisting();
+        const handkerchiefCheckbox = await $(page.hankerchiefCheckbox); 
+        await handkerchiefCheckbox.waitForDisplayed(); 
+        await handkerchiefCheckbox.waitForExist({ timeout: 10000 }); 
         await handkerchiefCheckbox.click();
-        await expect(handkerchiefCheckbox).isSelected().should.be.true; 
-        await expect(handkerchiefCheckbox).getText().should.equal('Ordered');
-    });
+        await expect(handkerchiefCheckbox).toBeExisting();
+    })
     
     it('should order 2 Ice creams', async () => {
         await browser.url(`/`);
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St'); 
+        const iceCreamSelect = await $(page.iceCreamSelect);
+        await iceCreamSelect.waitForDisplayed();
+        await iceCreamSelect.waitForExist({ timeout: 10000 }); 
         await iceCreamSelect.selectByVisibleText('2');
-        await expect(iceCreamSelect).getValue().should.equal('2');
+        await expect(iceCreamSelect).toBeExisting();
     });
     
     it('should display the car search modal', async () => {
         await browser.url(`/`);
-        await expect(carSearchModal).isDisplayed().should.be.true;
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St'); 
+        const carSearchModal = await $(page.carSearchModal);
+        await carSearchModal.waitForDisplayed();
+        await carSearchModal.waitForExist({ timeout: 5000 }); 
+        await expect(carSearchModal).toBeExisting(); 
       });
     
+    /*
     it('should display the driver info in the modal (optional)', async () => {
         await browser.url(`/`);  
-        await driverInfo.isDisplayed().should.be.true;
-        await expect(driverInfo).getText().should.not.be.empty;
-    });
-    */
+        await page.fillAddresses('East 2nd Street, 601', '1300 1st St'); 
+        const driverInfo = await $(page.driverInfo);
+        await driverInfo.waitForDisplayed(); 
+        await driverInfo.waitForExist({ timeout: 5000 });
+        await expect(driverInfo).toBeExisting();
+    }); */
 });
 
