@@ -86,7 +86,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://cnt-55db93d7-50db-4207-8a54-35a2891928e2.containerhub.tripleten-services.com',
+    baseUrl: 'https://cnt-96cef784-02f3-4592-8575-2efe3deb1b52.containerhub.tripleten-services.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -102,7 +102,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['chromedriver', 'intercept'], 
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

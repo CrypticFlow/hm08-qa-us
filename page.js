@@ -10,10 +10,12 @@ module.exports = {
     addCardButton: 'div=Add card',
     blanketState:'div[name="blanketState"]',
     blanketHankerchief: '.switch',
-    carSearchModal: '.smart-button',
+    businessMode: 'div=Business', 
+    carSearchButton: '.smart-button',
+    carSearchModal: 'div=Car search',
+    driverInfo: 'div*=The driver will arrive in',
     callATaxiButton: 'button=Call a taxi', 
     confirmButton: 'button=Confirm',
-    driverInfo: 'div[name="driverInfo"]',
     expDateInput: 'div[clalss="plc"]',
     iceCreamContainer: '.r-counter-container',
     iceCreamPlusButton: '.counter-plus',
@@ -46,7 +48,7 @@ module.exports = {
         await phoneNumberModal.waitForDisplayed()
         const phoneNumberField = await $(this.phoneNumberField);
         await phoneNumberField.waitForDisplayed();
-        await phoneNumberField.setValue('div[class="np-button"]');
+        await phoneNumberField.setValue(phoneNumber);
     },
     submitPhoneNumber: async function(phoneNumber) {
         await this.fillPhoneNumber(phoneNumber);

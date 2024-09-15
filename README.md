@@ -7,4 +7,19 @@
 
 5. > > Once all the code was ready we run npm run wdio in our terminal to execute the code. It's pretty beautiful to watch, as it spins up our app and executes actions as a user would on the webpage all without touching anything more than our command line. Full automation.
 
-6. >> STEPS: Clone the repository from GitHub to your local system. Write your Automation code in VS Code, it is the best editor for modern Web Development and QA Automation. It allows us to run the terminal right in the editor so you can run your scripts and see any errors in real time. Use npm run wdio to run the automated tests. 
+6. >> SET UP: Download and install Node.js from it install npm and WebDriver.IO 
+
+7. >> STEPS: Clone the repository from GitHub to your local system. Open the project in your chosen editor (VS Code), and start up the server from the TripleTen platform by copying from the site and into your wdio.conf.js file in the variable named baseUrl. Then run your tests using npm run wdio command in the termnial. 
+
+8. >> TESTS/ Expected Results
+        should set the address - pass
+        should select Supportive plan - pass
+        should save the phone number - pass
+        should collect credit card details - pass
+        should display a message to the driver - pass
+        should order a Blanket and handkerchiefs - pass
+        should order 2 Ice creams - pass 
+        should display the car search modal - pass
+        should display the driver info in the modal (optional) - pass
+
+9. >> camelCase is the used styling for naming variables. No unneccessary console.log(), no unnecessary pauses, no unused variablels.         
